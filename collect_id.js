@@ -29,7 +29,7 @@ function chatParser(req ,rres){
       },
       {
         "type":"text",
-        "text":"\n輸入任何文字可以重複取得此ID，以鍵入start.bat"
+        "text":"輸入任何文字可以重複取得此ID，以鍵入start.bat"
       },
       {
         "type":"text",
@@ -45,7 +45,7 @@ function chatParser(req ,rres){
         replymessage(text);
       }
       rres.end("OK")
-      
+
       function replymessage(recpt){ //recpt is message object //for bug detecter
         
             var options = {
