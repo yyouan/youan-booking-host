@@ -8,7 +8,7 @@ app.post('/' , chatParser); // POST 方法**/
 
 //------------build TCP/IP-------------
 function chatParser(req ,res){
-     
+  console.log("(hi)");  
   // 定义了一个post变量，用于暂存请求体的信息
   var post = '';     
   // 通过req的data事件监听函数，每当接受到请求体的数据，就累加到post变量中
@@ -73,8 +73,6 @@ function chatParser(req ,res){
   });
 
 }
-
-
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
 var server = app.listen((process.env.PORT || 8080), function() {
