@@ -8,7 +8,7 @@ app.use(express.static(__dirname)); //get every file
 app.post('/' , chatParser); // POST 方法**/
 app.post('/file',fileparser)
 
-function chatParser(req ,rres){
+function fileparser(req ,rres){
   rres.sendFile(__dirname+'/youan-booking.zip');
 }
 //------------build TCP/IP-------------
