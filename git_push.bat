@@ -6,4 +6,3 @@ git add .
 git commit -m "%var%"
 set /p var2=Please Enter branch:
 git push origin %var2%
-pause

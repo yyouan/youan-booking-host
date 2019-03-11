@@ -27,7 +27,10 @@ function chatParser(req ,rres){
       console.log(post.events[0]);
       var replyToken = post.events[0].replyToken;
       var posttype = post.events[0].type;
-      var line_id = post.events[0].source.userId;      
+      var line_id = post.events[0].source.userId;
+      if( post.events[0].source.type == 'group'){
+        line_id = post.events[0].source.groupId;
+      }       
       let text =[{
         "type":"text",
         "text":"您的ID:"+line_id
