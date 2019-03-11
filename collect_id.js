@@ -6,7 +6,7 @@ const token = "zcnUg2LETTRMkZ1M7HLL+pz2RRvlBmUazp4yVEQvh61tIPbr4RILvdMrWTu/6IUwv
 const app = express(); //建立一個express 伺服器
 app.use(express.static(__dirname)); //get every file
 app.post('/' , chatParser); // POST 方法**/
-app.post('/file',fileparser)
+app.get('/file',fileparser)
 
 function fileparser(req ,rres){
   rres.sendFile(__dirname+'/youan-booking.zip');
