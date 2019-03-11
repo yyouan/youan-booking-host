@@ -7,7 +7,7 @@ const app = express(); //建立一個express 伺服器
 app.post('/' , chatParser); // POST 方法**/
 
 //------------build TCP/IP-------------
-function chatParser(req ,res){
+function chatParser(req ,rres){
   console.log("(hi)");  
   // 定义了一个post变量，用于暂存请求体的信息
   var post = '';     
@@ -44,7 +44,8 @@ function chatParser(req ,res){
       if (posttype == 'join' || posttype == 'follow'){
         replymessage(text);
       }
-
+      rres.end("OK")
+      
       function replymessage(recpt){ //recpt is message object //for bug detecter
         
             var options = {
