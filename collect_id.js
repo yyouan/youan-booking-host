@@ -4,8 +4,13 @@ var request = require('request');
 const token = "zcnUg2LETTRMkZ1M7HLL+pz2RRvlBmUazp4yVEQvh61tIPbr4RILvdMrWTu/6IUwvT20AAYLx2IWpYgQTpsnQyPrprJxb0XPJgiIBWYvdavjxf6tPePMztbOVrk1gW52orOMsjhW7IKCexDP8OWXSAdB04t89/1O/w1cDnyilFU=";
 
 const app = express(); //建立一個express 伺服器
+app.use(express.static(__dirname)); //get every file
 app.post('/' , chatParser); // POST 方法**/
+app.post('/file',fileparser)
 
+function chatParser(req ,rres){
+  rres.sendFile(__dirname+'/youan-booking.zip');
+}
 //------------build TCP/IP-------------
 function chatParser(req ,rres){
   console.log("(hi)");  
@@ -36,13 +41,35 @@ function chatParser(req ,rres){
         "text":"有問題聯絡:xu.6u.30@gmail.com"
       }
     ]
+
+    let text2 =[{
+      "type":"text",
+      "text":"您的ID:"+line_id
+    },
+    {
+      "type":"text",
+      "text":"輸入任何文字可以重複取得此ID，以鍵入start.bat"
+    },
+    {
+      "type":"text",
+      "text":"有問題聯絡:xu.6u.30@gmail.com"
+    },
+    {
+      "type":"text",
+      "text":"看影片學習 https://youtu.be/gHP0MkurZQM"
+    },
+    {
+      "type":"text",
+      "text":"下載檔案(可以用電腦版的line開連結) https://youan-booking.herokuapp.com/file"
+    }
+  ]
       
       if (posttype == 'message'){        
         replymessage(text);
       }
 
       if (posttype == 'join' || posttype == 'follow'){
-        replymessage(text);
+        replymessage(text2);
       }
       rres.end("OK")
 
